@@ -1,0 +1,74 @@
+/* Query 1 - query used for second insight */
+SELECT
+  MediaType.Name AS media_type,
+  SUM(InvoiceLine.UnitPrice * InvoiceLine.Quantity) AS amount_of_sales
+FROM MediaType
+JOIN Track
+  ON Track.MediaTypeId = MediaType.MediaTypeId
+JOIN InvoiceLine
+  ON Track.TrackId = InvoiceLine.TrackId
+GROUP BY MediaType.Name
+ORDER BY amount_of_sales DESC
+
+/* Query 2 - query used for second insight */
+SELECT
+  TempTable.name AS genre_name,
+  SUM(InvoiceLine.Quantity * InvoiceLine.UnitPrice) AS sales
+FROM (SELECT
+  Track.TrackId AS t_id,
+  Genre.Name AS name,
+  MediaType.Name AS type
+FROM Track
+JOIN Genre
+  ON Track.GenreId = Genre.GenreId
+JOIN MediaType
+  ON Track.MediaTypeId = MediaType.MediaTypeId
+WHERE MediaType.MediaTypeId = 1) AS TempTable
+JOIN InvoiceLine
+  ON TempTable.t_id = InvoiceLine.TrackId
+GROUP BY TempTable.name
+HAVING sales > 50
+ORDER BY sales DESC
+
+
+/* Query 3 - query used for second insight */
+SELECT
+  TempTable.*
+FROM (SELECT
+  Artist.Name AS Artist_Name,
+  InvoiceLine.UnitPrice AS Song_UnitPrice,
+  COUNT(Artist.Name) AS numbers,
+  SUM(InvoiceLine.Quantity * InvoiceLine.UnitPrice) AS Sum_of_Sales
+FROM Track
+JOIN Album
+  ON Track.AlbumId = Album.AlbumId
+JOIN Artist
+  ON Album.ArtistId = Artist.ArtistId
+JOIN InvoiceLine
+  ON Track.TrackId = InvoiceLine.TrackId
+GROUP BY Artist.Name
+ORDER BY Sum_of_Sales DESC) AS TempTable
+Limit 5
+
+
+/* Query 4 - query used for second insight */
+SELECT
+  tabletemp.Country AS country,
+  tabletemp.sumofsales AS sumofsales,
+  CASE country
+    WHEN 'USA' THEN 'North America'
+    WHEN 'Canada' THEN 'North America'
+    WHEN 'Mexico' THEN 'North America'
+    ELSE 'Other'
+  END CountryGroup
+FROM (SELECT
+  Customer.Country,
+  SUM(InvoiceLine.Quantity * InvoiceLine.UnitPrice) AS sumofsales
+FROM Invoice
+JOIN InvoiceLine
+  ON Invoice.InvoiceId = InvoiceLine.InvoiceId
+JOIN Customer
+  ON Customer.CustomerId = Invoice.CustomerId
+GROUP BY Customer.Country
+ORDER BY sumofsales DESC) AS tabletemp
+
