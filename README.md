@@ -8,7 +8,7 @@
 
 -- Deep Learning Nano-degree
 
-![DAND](images/DLND.pdf)
+![DLND](images/DLND.pdf)
 
 -- Data Science Challenge Scholarship
 
