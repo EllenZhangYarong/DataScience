@@ -4,11 +4,11 @@
 
 -- Data Analytics Nano-degree
 
-![DAND](images/DAND.pdf)
+![DAND](images/DAND.png)
 
 -- Deep Learning Nano-degree
 
-![DLND](images/DLND.pdf)
+![DLND](images/DLND.png)
 
 -- Data Science Challenge Scholarship
 
