@@ -1,6 +1,6 @@
 -- Secure and Private AI Challenge Scholarship
 
-![Secure and Private AI Challenge Scholarship](images/spaic-scholarship-badge.jpg)
+![Secure and Private AI Challenge Scholarship](images/spaic-scholarship-badge.png)
 
 -- Data Analytics Nano-degree
 
@@ -8,7 +8,7 @@
 
 -- Deep Learning Nano-degree
 
-![DAND](images/DLND.pdf)
+![DLND](images/DLND.pdf)
 
 -- Data Science Challenge Scholarship
 
