@@ -1,4 +1,4 @@
-##v Skills
+## Skills
 
 - Gathering data
 - Assessing data
