@@ -6,6 +6,8 @@
 
 .DS_Store
 
+**/models
+
 5 Regression Loss Functions All Machine Learners Should Know.html
 5 Regression Loss Functions All Machine Learners Should Know_files/
 Errors_Solutions.ipynb
@@ -21,3 +23,6 @@ pytorch_challenge/flower_data/
 pytorch_challenge/models/
 tidyuplyrix.py
 udacity_intro_to_tensorflow_for_deep_learning/
+PrivateAI_challenge/dataset/
+PrivateAI_challenge/tutorials/
+**/*.pdf
