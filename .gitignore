@@ -2,8 +2,8 @@
 .gitignore
 
 **/.ipynb_checkpoints/*
+**/**/.DS_Store/*
 **/.DS_Store/*
-
 .DS_Store
 
 **/models
@@ -25,4 +25,7 @@ tidyuplyrix.py
 udacity_intro_to_tensorflow_for_deep_learning/
 PrivateAI_challenge/dataset/
 PrivateAI_challenge/tutorials/
+PrivateAI_challenge/.DS_Store
 **/*.pdf
+
+**/*.zip
