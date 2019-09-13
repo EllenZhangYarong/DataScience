@@ -1,9 +1,13 @@
+- DeepRacer League Final Result in August
 ![August Final Result](images/DeepRacer_Rank_August_Final.png)
 
+- Udacity Final Result in August
 ![August Udacity Final Result](images/Udacity_Rank_August_Final.png)
 
+- DeepRacer League Final Result in September
 ![September Final Result]()
 
+- Udacity Final Result in September
 ![September Udacity Final Result]()
 
 
