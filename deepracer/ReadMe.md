@@ -1,6 +1,6 @@
-![August Final Result]()
+![August Final Result](images/DeepRacer_Rank_August_Final.png)
 
-![August Udacity Final Result]()
+![August Udacity Final Result](images/Udacity_Rank_August_Final.png)
 
 ![September Final Result]()
 
