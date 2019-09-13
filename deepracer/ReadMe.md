@@ -113,6 +113,7 @@
 	```
 
 	![Model 10 Training result](images/model10.png)
+	![Temprary Result](images/model10_in_leaderboard.png)
 
 	3. Third Round:
 
