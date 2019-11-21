@@ -148,7 +148,8 @@ The core of DDPG algorithm is implemented in the **Agent** class in the [ddpg_ag
 
 In the [DDPG paper](https://arxiv.org/abs/1509.02971), they introduced this algorithm as an "Actor-Critic" method. Actor-critic methods leverage the strengths of both policy-based and value-based methods.
 
-![Actor-Critic](./images/ac_1.PNG)
+![Actor-Critic](./images/ac_1.PNG) 
+Picture comes from [Udacity DRLND course](https://classroom.udacity.com/nanodegrees/nd893-ent/parts/3f657114-51e6-476e-a34d-0513f8173072/modules/7a7f8ae1-8786-4195-ad38-af58bf50cd02/lessons/2fb51471-bf5a-4425-9871-8d751d1e8980/concepts/7376e9fe-7ba2-43a2-89ab-e4bbd3276329) video screenshot.
 
 
 The DDPG algorithm uses two deep neural networks (actor-critic) with the following struture(model.py):
@@ -238,8 +239,3 @@ Elapsed Time: 120.96 mins.
 1. The hyperparameters(e.g. TAU) shorten the training time a lot. So a more systematic way of searching better hyperparameters, e.g. grid search, random search, bayesian optimization or genetic algorithm would be more efficient.
 
 2. In this project, only solved the version 1, single agent problem. To Solve the version 2, multi-agent problem would be my one of the future work.
-
-
-```python
-
-```
