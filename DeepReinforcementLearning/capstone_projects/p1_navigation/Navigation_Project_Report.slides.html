@@ -13289,18 +13289,48 @@ Unity brain name: BananaBrain
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.-Algorithm!">3. Algorithm!<a class="anchor-link" href="#3.-Algorithm!">&#182;</a></h3><p>The solution implemented is a simple Deep Q-Learning (DQN) algorithm based on <a href="https://storage.googleapis.com/deepmind-media/dqn/DQNNaturePaper.pdf"> research paper </a>.
-The model architecture is very simple, just <code>3 fully-connected layers</code> with <code>Relu</code> activation function describes as below.</p>
+<h3 id="3.Algorithm">3.Algorithm<a class="anchor-link" href="#3.Algorithm">&#182;</a></h3><p>The solution implemented is a simple Deep Q-Learning (DQN) algorithm based on <a href="https://storage.googleapis.com/deepmind-media/dqn/DQNNaturePaper.pdf"> research paper </a>. It included experience replay and fixed Q targets, both of which are considered standard in a DQN.</p>
+<p>To approximate the value function, a simple neural network with three fully connected layers with ReLU activation function is used.</p>
 
 <pre><code>QNetwork(
   (fc1): Linear(in_features=37, out_features=64, bias=True)
   (fc2): Linear(in_features=64, out_features=64, bias=True)
   (fc3): Linear(in_features=64, out_features=4, bias=True)
 )</code></pre>
-<p>The algorithm has two main processes that are interleaved.</p>
 <ul>
-<li>One is where we sample the environment by performing actions and store away the observed, experienced tuples in a replay memory.</li>
-<li>The other is where we select the small batch of tuples from this memory, randomly, and learn from that batch using a gradient descent update step. </li>
+<li>the input layer which size depends of the state_size, which is given 37 states</li>
+<li>1 hidden fully connected layers of 64 cells each</li>
+<li>the output layer which size depends of the action_size, which is 4 actions</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The naive Q-learning algorithm has found to be unstable when <code>neural networks</code> are used to represent the action values. So there are <code>two key features</code> introduced into it to prevent action values from oscillation.</p>
+<ul>
+<li><p>Experience replay</p>
+<p>When the agent interacts with the environment, the sequence of experience tuples can be highly correlated. The naive Q-learning algorithm that learns from each of these experience tuples in sequential order runs the risk of getting swayed by the effects of this correlation. By instead keeping track of a replay buffer and using experience replay to sample from the buffer at random, we can prevent action values from oscillating or diverging catastrophically.</p>
+<p>The replay buffer contains a collection of experience tuples (S, A, R, S'). The tuples are gradually added to the buffer as we are interacting with the environment.</p>
+<p>The act of sampling a small batch of tuples from the replay buffer in order to learn is known as experience replay. In addition to breaking harmful correlations, experience replay allows us to learn more from individual tuples multiple times, recall rare occurrences, and in general make better use of our experience.</p>
+</li>
+</ul>
+
+<pre><code>We store the last 100,000 experience tuples (S, A, R, S′) into a data container called replay buffer from which we sample a mini-batch of 64 experiences. This batch ensures that the experiences are not highly correlated/independet and stable enough to train the network.</code></pre>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="./images/fixed_target.PNG" alt="Fixed Q-targets"></p>
+<ul>
+<li><p>Fixed Q-targets</p>
+<p>In Q-Learning, we update a guess with a guess, and this can potentially lead to harmful correlations. To avoid this, we can use the above update rule to better approximate the action value corresponding to state S and action A.</p>
+</li>
 </ul>
 
 </div>
@@ -13315,54 +13345,49 @@ The model architecture is very simple, just <code>3 fully-connected layers</code
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-
-<span class="n">agent</span> <span class="o">=</span> <span class="n">Agent</span><span class="p">(</span><span class="n">state_size</span><span class="o">=</span><span class="n">state_size</span><span class="p">,</span> <span class="n">action_size</span><span class="o">=</span><span class="n">action_size</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">agent</span><span class="o">.</span><span class="n">qnetwork_local</span><span class="p">)</span>
-<span class="n">scores</span><span class="p">,</span> <span class="n">avgs_moving</span> <span class="o">=</span> <span class="n">dqn</span><span class="p">(</span><span class="n">n_episodes</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">eps_start</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">eps_end</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">eps_decay</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span>
-
-<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="n">elapsed</span> <span class="o">=</span> <span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">/</span> <span class="mf">60.0</span> <span class="c1"># in minutes</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Elapsed Time: </span><span class="si">{0:3.2f}</span><span class="s2"> mins.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">elapsed</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>QNetwork(
-  (fc1): Linear(in_features=37, out_features=64, bias=True)
-  (fc2): Linear(in_features=64, out_features=64, bias=True)
-  (fc3): Linear(in_features=64, out_features=4, bias=True)
-)
-Episode 100	Average Score: 6.41
-Episode 200	Average Score: 11.45
-Episode 300	Average Score: 12.67
-Episode 320	Average Score: 13.12
-Environment solved in 220 episodes!	Average Score: 13.12
-Elapsed Time: 6.97 mins.
-</pre>
-</div>
-</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The DQN algorithm is implemented in dqn_agent.py file. It contains a DQN agent class and a Replay Buffer class.</p>
+<p>Agent class provides 5 methods：</p>
+<ol>
+<li>constructor:<ul>
+<li>Initialize the memory buffer (Replay Buffer)</li>
+<li>Initialize 2 instance of the Neural Network : the target network and the local network</li>
+</ul>
+</li>
+<li>step<ul>
+<li>Allows to store a step taken by the agent in the Replay Buffer/Memory</li>
+<li>Every 4 steps to update the target network weights with the current weight values from the local network (That's part of the Fixed Q Targets technique)</li>
+</ul>
+</li>
+<li>act<ul>
+<li>returns actions for the given state as per current policy</li>
+</ul>
+</li>
+<li>learn<ul>
+<li>update the Neural Network value parameters using given batch of experiences from the Replay Buffer</li>
+</ul>
+</li>
+<li>soft_update<ul>
+<li>softly updates the value from the target Neural Network from the local network weights </li>
+</ul>
+</li>
+</ol>
+<p>ReplayBuffer class provide 2 methods:</p>
+<ol>
+<li>add<ul>
+<li>add an experience step to the memory</li>
+</ul>
+</li>
+<li>sample<ul>
+<li>randomly sample a batch of experience steps for the learning</li>
+</ul>
+</li>
+</ol>
 
 </div>
 </div>
-
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -13424,14 +13449,6 @@ All testing results are not over 13. May need more trainings.</li>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>When finished, you can close the environment.</p>
-
-</div>
-</div>
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -13453,19 +13470,6 @@ All testing results are not over 13. May need more trainings.</li>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
 </div></section></section>
 </div>
 </div>
