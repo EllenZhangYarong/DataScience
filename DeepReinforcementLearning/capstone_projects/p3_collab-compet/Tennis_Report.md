@@ -85,34 +85,6 @@ def step(self, states, actions, rewards, next_states, dones):
 ```
 
 
-``Version 2``: I created a MAgent class, move the step function from ddpg_agent.py to maddpg_agent.py.
-
-```python 
-# in maddpg_agent.py
-
-def step(self, states, actions, rewards, next_states, dones):
-        # Save experience in replay memory
-        for state, action, reward, next_state, done in zip(states, actions, rewards, next_states, dones):
-            self.memory.add(state, action, reward, next_state, done)
-            
-        # Learn every UPDATE_EVERY time steps.
-        self.t_step = (self.t_step + 1) % UPDATE_EVERY
-
-        if self.t_step == 0:
-            # If enough samples are available in memory, get random subset and learn
-#             print(len(self.memory))
-            if len(self.memory) > BATCH_SIZE:
-                for agent in self.ddpg_agents:
-                    if self.shared_replay_buffer:
-                        experiences = self.memory.sample()
-                    else:
-                        experiences = agent.memory.sample()
-                    
-                    agent.learn(experiences, GAMMA)
-
-```
-
-
 #### training loop
 ```
 start = time.time()
@@ -153,11 +125,36 @@ Elapsed Time: 13.16 mins.
 
 
 
-![Test Score](./images/test_v1.png)
+![Test Score](./images/testing_v1.png)
 
 
 
-version 2: 
+``Version 2``: I created a MAgent class, move the step function from ddpg_agent.py to maddpg_agent.py.
+
+```python 
+# in maddpg_agent.py
+
+def step(self, states, actions, rewards, next_states, dones):
+        # Save experience in replay memory
+        for state, action, reward, next_state, done in zip(states, actions, rewards, next_states, dones):
+            self.memory.add(state, action, reward, next_state, done)
+            
+        # Learn every UPDATE_EVERY time steps.
+        self.t_step = (self.t_step + 1) % UPDATE_EVERY
+
+        if self.t_step == 0:
+            # If enough samples are available in memory, get random subset and learn
+#             print(len(self.memory))
+            if len(self.memory) > BATCH_SIZE:
+                for agent in self.ddpg_agents:
+                    if self.shared_replay_buffer:
+                        experiences = self.memory.sample()
+                    else:
+                        experiences = agent.memory.sample()
+                    
+                    agent.learn(experiences, GAMMA)
+
+``` 
 
 ```
 start = time.time()
@@ -202,7 +199,7 @@ Elapsed Time: 9.86 mins.
 
 
 
-![Test Score](./images/test_v2.png)
+![Test Score](./images/testing_v2.png)
 
 
 The best hyperparameter for now.
