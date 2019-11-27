@@ -21,7 +21,7 @@
 
 -- Bertlesmann Scholarship Cloud Track
 
-![Cloud Technology](iamges/Bertelsmann-2019@2x.jpg)
+![Cloud Technology](iamges/Bertelsmann-2019.jpg)
 
 -- DeepRacer challenge winner
 
@@ -41,11 +41,11 @@
 
 -- Data Foundations Nano-degree
 
-![Data Science Scholarship pic](images/dfnd.jpg | width=100)
+![Data Science Scholarship pic](images/dfnd.jpg)
 
 -- Pytorch Scholarship Challenge
 
-![Pytorch Scholarship Challenge ](images/pytorch.jpg | width=100)
+![Pytorch Scholarship Challenge ](images/pytorch.jpg)
 
 
 
