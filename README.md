@@ -1,43 +1,43 @@
 
 -- Deep Reinforcement Learning Nano-degree
 
-![Deep Reinforcement Learning](images/DRLND.PNG =250x)
+![Deep Reinforcement Learning](images/DRLND.PNG)
 
 
 -- Data Analytics Nano-degree
 
-![DAND](images/DAND.PNG | =250x)
+![DAND](images/DAND.PNG)
 
 
 -- Deep Learning Nano-degree
 
-![DLND](images/DLND.PNG | =250x)
+![DLND](images/DLND.PNG)
 
 
 -- Advanced Google Analytics
 
-![ Advanced Google Analytics ](images/advanced.jpg | width=100)
+![ Advanced Google Analytics ](images/advanced.jpg)
 
 
 -- Bertlesmann Scholarship Cloud Track
 
-![Cloud Technology](iamges/Bertelsmann-2019@2x.jpg | width=100)
+![Cloud Technology](iamges/Bertelsmann-2019@2x.jpg)
 
 -- DeepRacer challenge winner
 
-![DeepRacer Chanllege Winner](images/AWS-Scholarship.jpg | width=100)
+![DeepRacer Chanllege Winner](images/AWS-Scholarship.jpg)
 
 -- Data Science Challenge Scholarship
 
-![Data Science Challenge Scholarship pic](images/dsc.jpg | width=100)
+![Data Science Challenge Scholarship pic](images/dsc.jpg)
 
 -- Secure and Private AI Challenge Scholarship
 
-![Secure and Private AI Challenge Scholarship](images/spaic-scholarship-badge.png | width=100)
+![Secure and Private AI Challenge Scholarship](images/spaic-scholarship-badge.png)
 
 -- Data Science Scholarship
 
-![Data Science Scholarship pic](images/ds.jpg | width=100)
+![Data Science Scholarship pic](images/ds.jpg)
 
 -- Data Foundations Nano-degree
 
