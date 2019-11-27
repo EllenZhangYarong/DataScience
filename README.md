@@ -13,6 +13,7 @@
 
 ![DLND](images/DLND.PNG)
 
+
 -- Data Foundations Nano-degree
 
 ![Data Science Scholarship pic](images/dfnd.jpg)
@@ -25,19 +26,23 @@
 
 -- Bertlesmann Scholarship Cloud Track
 
-![Cloud Technology](iamges/Bertelsmann.jpg)
+![Cloud Technology](iamges/Bertlesmann2019.PNG)
+
 
 -- DeepRacer challenge winner
 
 ![DeepRacer Chanllege Winner](images/AWS-Scholarship.jpg)
 
+
 -- Data Science Challenge Scholarship
 
 ![Data Science Challenge Scholarship pic](images/dsc.jpg)
 
+
 -- Secure and Private AI Challenge Scholarship
 
 ![Secure and Private AI Challenge Scholarship](images/spaic-scholarship-badge.png)
+
 
 -- Data Science Scholarship
 
