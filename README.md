@@ -13,6 +13,10 @@
 
 ![DLND](images/DLND.PNG)
 
+-- Data Foundations Nano-degree
+
+![Data Science Scholarship pic](images/dfnd.jpg)
+
 
 -- Advanced Google Analytics
 
@@ -21,7 +25,7 @@
 
 -- Bertlesmann Scholarship Cloud Track
 
-![Cloud Technology](iamges/Bertelsmann-2019.jpg)
+![Cloud Technology](iamges/Bertelsmann.jpg)
 
 -- DeepRacer challenge winner
 
@@ -39,9 +43,6 @@
 
 ![Data Science Scholarship pic](images/ds.jpg)
 
--- Data Foundations Nano-degree
-
-![Data Science Scholarship pic](images/dfnd.jpg)
 
 -- Pytorch Scholarship Challenge
 
