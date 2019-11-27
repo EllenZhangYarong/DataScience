@@ -1,17 +1,17 @@
 
 -- Deep Reinforcement Learning Nano-degree
 
-![Deep Reinforcement Learning](images/DRLND.PNG | width=100)
+![Deep Reinforcement Learning](images/DRLND.PNG =250x)
 
 
 -- Data Analytics Nano-degree
 
-![DAND](images/DAND.PNG | width=100)
+![DAND](images/DAND.PNG | =250x)
 
 
 -- Deep Learning Nano-degree
 
-![DLND](images/DLND.PNG | width=100)
+![DLND](images/DLND.PNG | =250x)
 
 
 -- Advanced Google Analytics
