@@ -26,7 +26,7 @@
 
 -- Bertlesmann Scholarship Cloud Track
 
-![Cloud Technology](iamges/Bertlesmann2019.PNG)
+![Cloud Technology](images/Bertlesmann2019.PNG)
 
 
 -- DeepRacer challenge winner
