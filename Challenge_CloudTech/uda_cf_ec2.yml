@@ -1,0 +1,9 @@
+Description:
+  Ellen Zhang / Udacity
+  This template deploys a EC2 instance
+Resources:
+  UdacityVPC:
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: testforcfec2
+     

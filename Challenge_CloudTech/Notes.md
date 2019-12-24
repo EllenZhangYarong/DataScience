@@ -1,13 +1,6 @@
-Shell Workshop
+# March 5, 2020
 
-what's a shell?
-
-**A shell is simply the outermost layer of an operating system. It's designed to provide a way for you to interact with the tools and services that your operating system provides.**
-
-use your computer's text shell is called a *Command-Line Interface* or ***CLI***.
-
-
-# Lesson 12
+## Lesson 12
 
 **Types of Cloud Computing**
 
@@ -32,7 +25,7 @@ Resources:
 
 	The hybrid model is a growing trend in the industry for those organizations that have been slow to adopt the cloud due to being in a heavily regulated industry. The hybrid model gives organizations the flexibility to slowly migrate to the cloud.
 
-# Lesson 13
+## Lesson 13
 
 ### Elastic Cloud Compute
 
@@ -319,3 +312,236 @@ Cloud networking includes:
 	- Elastic Load Balancing works with EC2 Instances, containers, IP addresses, and Lambda functions.
 	- You can configure Amazon EC2 instances to only accept traffic from a load balancer.
 
+## LESSON 17 Messaging & Containers
+
+### Messaging in the Cloud
+	There are often times that users of your applications need to be notified when certain events happen. Notifications, such as text messages or emails can be sent through services in the cloud. The use of the cloud offers benefits like lowered costs, increased storage, and flexibility.
+
+**Messaging typically occurs between Internet-based applications and devices. One system can send a message to another system.**
+
+### Simple Notification Service
+	Amazon Simple Notification Service (or SNS) is a cloud service that allows you to send notifications to the users of your applications. SNS allows you to decouple the notification logic from being embedded in your applications and allows notifications to be published to a large number of subscribers.
+
+#### Features
+	SNS uses a publish/subscribe model.
+	SNS can publish messages to Amazon SQS queues, AWS Lambda functions, and HTTP/S webhooks.
+
+#### Tips
+	SNS is found under the Application Integration section on the AWS Management Console.
+	SNS Topic names are limited to 256 characters.
+	A notification can contain only one message.
+
+**Notifications can be sent to end users using mobile push, text messages, and email.**
+
+### Queues
+	A queue is a data structure that holds requests called messages. Messages in a queue are commonly processed in order, first in, first out (or FIFO).
+
+	Messaging queues improve:
+	- performance
+	- scalability
+	- user experience
+
+**The use of asynchronous processing, where a user doesn't wait for a response, improves the overall user experience.**
+
+### Simple Queue Service
+	Amazon Simple Queue Service (SQS) is a fully managed message queuing service that allows you to integrate queuing functionality in your application. SQS offers two types of message queues: standard and FIFO.
+
+#### Features
+	- send messages
+	- store messages
+	- receive messages
+
+#### Tips
+	- The Simple Queue Service (SQS) is found under the Application Integration on the AWS Management Console.
+	- FIFO queues support up to 300 messages per second.
+	- FIFO queues guarantee the ordering of messages.
+	- Standard queues offer best-effort ordering but no guarantees.
+	- Standard queues deliver a message at least once, but occasionally more than one copy of a message is delivered.
+
+**You should use FIFO ordering when message ordering is critical and standard queues when messages can arrive more than once and be processed out of order.**
+
+### Containers in the Cloud
+	Enterprises are adopting container technology at an explosive rate. A container consists of everything an application needs to run: the application itself and its dependencies (e.g. libraries, utilities, configuration files), all bundled into one package.
+
+	Each container is an independent component that can run on its own and be moved from environment to environment.
+
+**A container consists of everything an application needs to run: the application itself and its dependencies (e.g. libraries, utilities, configuration files), all bundled into one package.**
+
+### Elastic Container Service (ECS)
+	ECS is an orchestration service used for automating deployment, scaling, and managing of your containerized applications. ECS works well with Docker containers by:
+	- launching and stopping Docker containers
+	- scaling your applications
+	- querying the state of your applications
+
+### Tips
+	- ECS is under the Compute section on the AWS Management Console.
+	- You can schedule long-running applications, services, and batch processeses using ECS.
+	- Docker is the only container platform supported by Amazon ECS.
+
+**ECS is used for automating deployment, scaling and managing your containerized applications.**
+
+## LESSON 18 AWS Management
+
+### Cloud Trail
+	Cloud Trail allows you to audit (or review) everything that occurs in your AWS account. Cloud Trail does this by recording all the AWS API calls occurring in your account and delivering a log file to you.
+
+#### Features
+	CloudTrail provides event history of your AWS account activity, including:
+
+who has logged in
+services that were accessed
+actions performed
+parameters for the actions
+responses returned
+This includes actions taken through the AWS Management Console, AWS SDKs, command line tools, and other AWS services.
+
+### Tips
+	- Cloud Trail is found under the Management & Governance section on the AWS Management Console.
+	- CloudTrail shows results for the last 90 days.
+	- You can create up to five trails in an AWS region.
+
+**Cloud Trail allows you to audit (or review) everything that occurs in your AWS account.**
+	- Set up alerts and alarms for certain activities
+	- Log responses from AWS services
+	- Track calls made using the SDK
+
+### Cloud Watch
+	Cloud Watch is a service that monitors resources and applications that run on AWS by collecting data in the form of logs, metrics, and events.
+
+#### Features
+	- There are several useful features:
+	- Collect and track metrics
+	- Collect and monitor log files
+	- Set alarms and create triggers to run your AWS resources
+	- React to changes in your AWS resources
+
+#### Tips
+	- CloudWatch is found under the Management & Governance section on the AWS Management Console.
+	- Metrics are provided automatically for a number of AWS products and services.
+
+**Cloud Watch can collect and track metrics, collect and monitor log files, and create triggers to run your AWS resources.**
+
+### Infrastructure as Code
+	Infrastructure as Code allows you to describe and provision all the infrastructure resources in your cloud environment. You can stand up servers, databases, runtime parameters, resources, etc. based on scripts that you write. Infrastructure as Code is a time-saving feature because it allows you to provision (or stand up) resources in a reproducible way.
+
+### Cloud Formation
+	AWS Cloud Formation allows you to model your entire infrastructure in a text file template allowing you to provision AWS resources based on the scripts you write.
+
+#### Tips
+	- Cloud Formation is found under the Management & Governance section on the AWS Management Console.
+	- Cloud Formation templates are written using JSON or YAML.
+	- You can still individually manage AWS resources that are part of a CloudFormation stack.
+
+**Since your infrastructure is now code, you can check your scripts into version control.**
+
+
+## LESSON 19 Getting Started with CloudFormation
+Set up the necessary tools to get started with AWS CloudFormation and deploy your first server.
+
+### Lesson 1: Introduction to Cloud Formation
+### Lesson 2: Understanding Diagrams of Cloud Architecture
+### Lesson 3: Infrastructure as Code (convert diagrams into code)
+### Lesson 4: Deploying Services
+### Lesson 5: Additional services that you’ll use in the project
+
+Issues that DevOps tries to solve:
+- Unpredictable deployments
+- Mismatched environments (development doesn’t match production)
+- Configuration Drift
+
+
+	DevOps gives best practices and tools for solving these problems:
+		- DevOps Tools: DevOp tools deploy and manage configuration changes to servers.
+		Stackexchange has a discussion post detailing the difference between DevOps tools vs. Software Configuration Tools
+		- Allows for predictable deployments, because it’s an automated script.
+		- Enables Continuous Integration Continuous Deployment (CI/CD) so that new features are automatically deployed with all the required dependencies.
+
+Glossary
+- **Continuous Integration Continuous Deployment (CI/CD)**: Tracks the development workflow from testing through production. Continuous integration is process flow of testing any change made to your development flow, while continuous deployment tracks those changes through to staging and production systems.
+- Check out this article by [Atlassian.com](https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment) that describes these in detail.
+- This [article](https://css-tricks.com/continuous-integration-continuous-deployment/) by Florian Matlik describes the differences between continuous integration and continuous deployment.
+
+- **CloudFormation**: CloudFormation is a tool in AWS for managing, configuring and deploying infrastructure (push code along with the necessary server configurations).
+
+*You'll need these three tools to get started in CloudFormation. Version Control,Code Editor for YAML and JSON,Amazon Web Services account*
+
+### Creating Access Key ID
+
+Deciding Access Privileges within AWS
+
+	- Programmatic Access
+
+	In the AWS console, choose "programmatic access." This allows us to use code to interact with AWS, instead of relying on mouse clicking in the console web pages.
+
+	- Administrator Access
+
+	For IAM access, choose “administrator access.” This is just for initial setup of your account. Afterwards, you’ll want to limit access to only what you need.
+
+Dev and Prod user accounts
+
+	In practice, Dev and DevOps members may have separate user accounts for the dev environment as opposed to the production environment. This makes it easier for developers by giving them wider privileges in the dev environment that would normally only be reserved for DevOps members in the production environment.
+
+Access Key ID and Secret Access Keys
+
+	Remember not to save these in your code or to check into any repositories. Keep these private to you.
+
+
+**Specifying a region is a nice-to-have and not mandatory, but it does make your life easier when using region-specific services.**
+
+### Configuring AWS CLI
+
+**Configuring the AWS Command Line Interface (CLI)**
+	- Download and install the AWS CLI tool.
+	- In the terminal, type aws --version: this verifies that you have the AWS CLI tool.
+	- To set up your AWS CLI, type aws configure in the terminal. Next when prompted for the AWS Access Key ID, paste in your Secret access key.
+	- Region: Please use us-west-2, even if you’re living closer to another available region.
+
+**It's great practice to change them every 90 days or sooner and also to just delete them or mark them inactive when not in use.**
+
+**Verifying your Setup**
+	- One way to check if your AWS CLI is set up properly is to try a command. You can try listing your S3 buckets:aws s3 ls . This will be blank if you have no S3 buckets. However, if you have no error message, then you’ve verified that your user has API access to communicate with AWS.
+	- Note that each user can have up to 2 access keys at the same time.
+
+**Additional Access Keys**
+	Note that each user can have up to 2 access keys at the same time.
+
+**Why Making Keys Inactive is a Better Choice**
+	You may make your access key temporarily inactive rather than destroying it and creating a new one. This may be helpful if you want to stop an automated process that uses that key (for example, a CI/CD process).
+
+### Understanding CloudFormation
+
+*CloudFormation is a declarative language, not an imperative language.*
+
+	- CloudFormation handles resource dependencies, so that you don’t have to specify which resource to start up before another. There are cases where you can specify that a resource depends on another resource, but ideally, you’ll let CloudFormation take care of dependencies.
+
+	- VPC is the smallest unit of resource.
+
+**Declarative languages**: These languages specify what you want, without requiring you to specify how to get it. An example of a popular declarative language is SQL.
+
+**Imperative languages**: These languages use statements to change the state of the program.
+
+
+### Getting Started With CloudFormation Script
+
+*If you have a team of database, operations and networking experts, you would split your CloudFormation script into several files based on:* **Type of resource**
+
+
+#### YAML and JSON
+	YAML and JSON file formats are both supported in CloudFormation, but YAML is the industry preferred version that’s used for AWS and other cloud providers (Azure, Google Cloud Platform).
+
+	An important note about YAML files: the whitespace indentation matters! We recommend that you use four white spaces for each indentation.
+
+#### Glossary in CloudFormation scripts
+
+**Name**: A name you want to give to the resource (does this have to be unique across all resource types?)
+**Type**: Specifies the actual hardware resource that you’re deploying.
+**Properties**: Specifies configuration options for your resource. Think of these as all the drop down menus and checkbox options that you would see in the AWS console if you were to request the resource manually.
+**Stack**: A stack is a group of resources. These are the resources that you want to deploy, and that are specified in the YAML file.
+
+#### Best practices
+	Coding best practice: Create separate files to organize your code. You can either create separate files for similar resources, or create files for each developer who uses those resources.
+
+### Testing CloudFormation
+
+
+aws cloudformation create-stack --stack-name myfirsttest --region us-west-2 --template-body file://uda_cloudformation_test.yml

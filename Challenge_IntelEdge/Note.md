@@ -1,3 +1,4 @@
+# March 3, 2020
 
 ## LESSON 1 Introduction to AI at the Edge
 
