@@ -36,3 +36,4 @@ PrivateAI_challenge/.DS_Store
 **/*.pdf
 
 **/*.zip
+**/**.json
