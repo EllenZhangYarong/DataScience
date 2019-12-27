@@ -40,7 +40,7 @@ In addition to the above data, there are two additional meta-data:
 
 ## benchmark model
 
-	In this project [kaggle](https://www.kaggle.com/c/udacity-arvato-identify-customers/leaderboard) competition public leaderboard, the best score(AUC) is 0.80819. This is going to be the bechmark model.
+In this project [kaggle](https://www.kaggle.com/c/udacity-arvato-identify-customers/leaderboard) competition public leaderboard, the best score(AUC) is 0.80819. This is going to be the bechmark model.
 
 
 ## evaluation metrics
@@ -56,8 +56,7 @@ In the segmentation part, explained variance ratio is be used in the PCA process
           <mn>5</mn>
         </mrow>
         <mrow class="MJX-TeXAtom-ORD">
-
-        </mrow>
+   </mrow>
       </munderover>
       <msubsup>
         <mi>s</mi>
@@ -80,7 +79,7 @@ In the supervised model prediction parts, mean squared log error and AUC are use
 
 ![MSLE math](https://peltarion.com/static/msle_01.png)
 
-![Area under the curve](https://en.wikipedia.org/wiki/Receiver_operating_characteristic#/media/File:ROC_curves.svg)
+![Area under the curve](https://en.wikipedia.org/wiki/File:ROC_curves.svg)
 
 ## project design
 	- PCA 
