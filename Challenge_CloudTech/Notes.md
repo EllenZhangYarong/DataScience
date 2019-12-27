@@ -622,3 +622,17 @@ Place NAT Gateways inside the public subnets and not the private subnets. NAT ga
 	- Place the S3 service outside of your VPC.
 
 **Images, Video, large text files, log files, audit logs are all great uses for S3.**
+
+
+### Routing
+	- Routing is the action of applying routing rules to your network, in this case, to your VPC.
+	- Routing rule: Resources follow the routing rule, which defines what resource has access to communicate with another resource. It blocks traffic from resources that do not follow the routing rule.
+
+We create *RouteTables* for *VPCs* so that we can add *Routes* that we later associate with *Subnets*. 
+
+### Outputs
+Outputs are optional but are very useful if there are output values you need to:
+
+	- import into another stack
+	- return in a response
+	- view in AWS console
