@@ -1,19 +1,20 @@
 # Customer Segmentation Report for Arvato Financial Services
 
 ## domain background
-
+	- This project is the capstone project for machine learning nano-degree. We need to use unsupervised and supervised techniques to analyze the demographics data. The goal of this project is to characterize the customers segment of population and to build a model to make predictions.
+	- The data for this project is provided by Bertelsmann Arvato Analytics, and represents a real-life data science project. 
 	
 
 ## problem statement
 
 	 1. Customer Segmentation Report
-	Access the first and second dataset by using unsupervised learning methods to analyze attributes of established customers and the general population in order to create customer segments.
+		- Access the first and second dataset by using unsupervised learning methods to analyze attributes of established customers and the general population in order to create customer segments.
 
 	 2. Supervised Learning Model
-	 Use the choosed features from the part 1 to build a machine learning model that predicts whether or not each individual will respond to the campaign, based on the third dataset.
+	 	- Use the choosed features from the part 1 to build a machine learning model that predicts whether or not each individual will respond to the campaign, based on the third dataset.
 
 	 3. Kaggle Competition
-	Use the model built in the second part to make predictions on the campaign data as (the fourth dataset) part of a Kaggle Competition. 
+		- Use the model built in the second part to make predictions on the campaign data as (the fourth dataset) part of a Kaggle Competition. 
 
 ## datasets and inputs
 
@@ -25,6 +26,7 @@ There are four data files associated with this project:
 	4. Udacity_MAILOUT_052018_TEST.csv: Demographics data for individuals who were targets of a marketing campaign; 42 833 persons (rows) x 366 (columns).
 
 In addition to the above data, there are two additional meta-data:
+
 	5. DIAS Information Levels — Attributes 2017.xlsx: a top-level list of attributes and descriptions, organized by informational category
 	6. DIAS Attributes — Values 2017.xlsx: a detailed mapping of data values for each feature in alphabetical order
 
@@ -56,6 +58,7 @@ In the segmentation part, explained variance ratio is be used in the PCA process
           <mn>5</mn>
         </mrow>
         <mrow class="MJX-TeXAtom-ORD">
+
    </mrow>
       </munderover>
       <msubsup>
@@ -77,17 +80,22 @@ In the segmentation part, explained variance ratio is be used in the PCA process
 Explained variance accounts for the ability to describe the whole feature variance, the more the explained variance, the more import of the component.
 In the supervised model prediction parts, mean squared log error and AUC are used as main metric.
 
-![MSLE math](https://peltarion.com/static/msle_01.png)
+![MSLE math](https://peltarion.com/static/msle_01.png) 
+[image source](https://peltarion.com/knowledge-center/documentation/modeling-view/build-an-ai-model/loss-functions/mean-squared-logarithmic-error)
 
-![Area under the curve](https://en.wikipedia.org/wiki/File:ROC_curves.svg)
+![Area under the curve](https://miro.medium.com/max/361/1*pk05QGzoWhCgRiiFbz-oKQ.png) 
+[image source](https://towardsdatascience.com/understanding-auc-roc-curve-68b2303cc9c5)
 
 ## project design
-	- PCA 
-	- K-mean clustering
+	
+	1. Exploratory Data Analysis (EDA):
+		- To get some initial insight from the data. Data cleaning, data wrangling, data visulization will be done. 
 
-	- Light Gradient Boosting Regressor
-	- XGBoost Regressor
-	- Ridge Regressor
-	- Support Vector Regressor
-	- Random Forest Regressor
-	- gradientboosting
+	2. Dimensionality reduction with PCA:
+		- It is very hard for K-means to figure out which features are most important in a higher dimensions. So before clustering this data, PCA will be hired to reduce the number of features within a dataset. Try to retain the "pricipal components".
+
+	3. Clustering data with k-means:
+		- Use the unsupervised clustering algorithm, K-means to segment customers using their PCA attributes. Will use 'Elbow Graph' to guide me to find a "good" K.
+
+	4. Supervised modeling:
+		- Define and train a binary logistic classfier to effectively separate two classes of MAILOUT data.
