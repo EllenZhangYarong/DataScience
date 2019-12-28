@@ -49,33 +49,8 @@ In this project [kaggle](https://www.kaggle.com/c/udacity-arvato-identify-custom
 
 In the segmentation part, explained variance ratio is be used in the PCA process. 
 
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-  <mfrac>
-    <mrow>
-      <munderover>
-        <mo>&#x2211;<!-- ∑ --></mo>
-        <mrow class="MJX-TeXAtom-ORD">
-          <mn>5</mn>
-        </mrow>
-        <mrow class="MJX-TeXAtom-ORD">
-
-   </mrow>
-      </munderover>
-      <msubsup>
-        <mi>s</mi>
-        <mi>n</mi>
-        <mn>2</mn>
-      </msubsup>
-    </mrow>
-    <mrow>
-      <mo>&#x2211;<!-- ∑ --></mo>
-      <msup>
-        <mi>s</mi>
-        <mn>2</mn>
-      </msup>
-    </mrow>
-  </mfrac>
-</math>
+![Explained Variance](https://render.githubusercontent.com/render/math?math=%5Cbegin%7Bequation%2A%7D%0A%5Cfrac%7B%5Csum_%7Bn%7D%5E%7B%20%7D%20s_n%5E2%7D%7B%5Csum%20s%5E2%7D%0A%5Cend%7Bequation%2A%7D&mode=display) 
+[image source](https://github.com/udacity/ML_SageMaker_Studies/blob/master/Population_Segmentation/Pop_Segmentation_Exercise.ipynb)
 
 Explained variance accounts for the ability to describe the whole feature variance, the more the explained variance, the more import of the component.
 In the supervised model prediction parts, mean squared log error and AUC are used as main metric.
